@@ -1,0 +1,18 @@
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <h1 class="text-main fw-bold fs-2">All Categories</h1>
+</div>
+<!---------------------------------------------------------------------------------------->
+<!-- Loading -->
+<div class="container d-flex justify-content-center p-5" *ngIf="loading">
+  <div class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="!loading" class="row p-5 m-5">
+  <div *ngFor="let category of categoriesItem" class="col-xl-3 col-lg-4 col-md-6 mb-5 product cursor-pointer">
+    <img height="250" [src]="category.image" [alt]="category.name" class="w-100" />
+    <h4 class="h4 fw-bolder text-center mt-3">{{ category.name }}</h4>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->

@@ -1,0 +1,34 @@
+<!-- order.component.html -->
+<div class="container mt-5">
+  <h2>Orders</h2>
+  <div *ngIf="orders && orders.length > 0; else noOrders">
+    <div class="list-group">
+      <div *ngFor="let order of orders" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <small>Status: {{ order.status }}</small>
+        </div>
+        <p class="mb-1">Date: {{ order.date | date:'dd/MM/yyyy HH:mm:ss' }}</p> <!-- Change date format here -->
+        <small>Total Price: {{ order.totalPrice }}</small>
+        <!-- List of products for the current order -->
+        <ul class="list-group mt-2">
+          <li *ngFor="let product of order.products" class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <img src="{{ product.product.image }}" alt="{{ product.product.title }}" width="50" height="50" class="me-3">
+              <span>{{ product.product.title }}</span>
+            </div>
+            <div>
+              <span class="badge bg-primary rounded-pill">Price: {{ product.product.price }}</span>
+              <span class="badge bg-secondary rounded-pill">Quantity: {{ product.quantity }}</span>
+            </div>
+          </li>
+        </ul>
+        <div class="mt-2">
+          <button class="btn btn-danger" (click)="cancelOrder(order._id)">Cancel Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noOrders>
+    <p>No orders found.</p>
+  </ng-template>
+</div>

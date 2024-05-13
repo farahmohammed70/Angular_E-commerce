@@ -1,0 +1,49 @@
+<section class="h-100 h-custom" style="background-color: #eee">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-body p-4">
+            <h5 class="mb-3">
+              <a href="#!" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a>
+            </h5>
+            <hr />
+            <div class="card mb-3 text-center" *ngFor="let cart of carts">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex flex-row align-items-center">
+                    <div>
+                      <img src="{{ cart.product.image }}" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px" />
+                    </div>
+                    <div class="ms-3">
+                      <h5>{{ cart.product.title }}</h5>
+                      <!-- <p class="small mb-0">{{cart.product.description}}</p> -->
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center">
+                    <div style="width: 100px">
+                      <button class="btn btn-primary fw-normal mb-0" (click)="plus(cart._id, cart.quantity)">+</button>
+                    </div>
+                    <div style="width: 50px">
+                      <h5 class="fw-normal mb-0">{{ cart.quantity }}</h5>
+                    </div>
+                    <div style="width: 100px">
+                      <button class="btn btn-primary fw-normal mb-0" (click)="minus(cart._id, cart.quantity)">-</button>
+                    </div>
+                    <div style="width: 80px">
+                      <h5 class="mb-0">{{ cart.product.price * cart.quantity }}</h5>
+                    </div>
+                    <a class="text-muted ms-2" (click)="delete(cart._id)"><i class="fas fa-trash-alt"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <a  class="text-muted ms-2" (click)="deleteUserCart()">Delete</a>-->
+            <button class="ms-2 btn btn-primary text-white" (click)="deleteUserCart()">Delete All</button>
+            <button class="ms-2 btn btn-success text-white" (click)="navigateToPaymentPage()">Proceed to Payment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

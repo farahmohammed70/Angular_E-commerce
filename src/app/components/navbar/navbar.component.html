@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-xl navbar-light bg-light pt-3">
+  <div class="container">
+    <a class="navbar-brand fs-2 fw-semibold text-white" href="home" *ngIf="!isAdmin">SoftTech</a>
+    <button
+      class="navbar-toggler bg-light"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span></button
+    ><!-- burgur icon -->
+
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav ms-auto justify-content-end fs-5 fw-bold" *ngIf="!isAdmin">
+        <li class="nav-item">
+          <a class="nav-link fw-normal" aria-current="page" routerLink="home" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-normal" aria-current="page" routerLink="products" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-normal" aria-current="page" routerLink="categories" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }"
+            >Categories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-normal" aria-current="page" routerLink="brands" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }"
+            >Brands</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isLogin && isUser">
+          <a class="nav-link fw-normal" aria-current="page" routerLink="/Orders" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }"
+            >Orders</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isLogin && isUser">
+          <a
+            class="nav-link fw-normal"
+            aria-current="page"
+            [routerLink]="['/userprofile', currentId]"
+            routerLinkActive="fw-bold text-primary"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Profile</a
+          >
+        </li>
+      </ul>
+      <!------------------------------------------------------------------------------------------------------>
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <!-- <li class="nav-item d-flex align-items-center socialMedia">
+          <i class="fab mx-2 fa-instagram cursor-pointer"></i>
+          <i class="fab mx-2 fa-facebook cursor-pointer"></i>
+          <i class="fab mx-2 fa-tiktok cursor-pointer"></i>
+          <i class="fab mx-2 fa-twitter cursor-pointer"></i>
+          <i class="fab mx-2 fa-linkedin cursor-pointer"></i>
+          <i class="fab mx-2 fa-youtube cursor-pointer"></i>
+        </li> -->
+        <li *ngIf="!isLogin" class="nav-item">
+          <button class="btn btn-primary me-2" routerLink="users/login" routerLinkActive="fw-bold" [routerLinkActiveOptions]="{ exact: true }">Login</button>
+        </li>
+        <br />
+        <li *ngIf="!isLogin" class="nav-item">
+          <button class="btn btn-light text-primary" routerLink="users/register" routerLinkActive="fw-bold" [routerLinkActiveOptions]="{ exact: true }">Register</button>
+        </li>
+
+        <li *ngIf="isUser" class="nav-item position-relative cart1">
+          <a class="nav-link position-relative" routerLink="cart">
+            <i class="fas fa-cart-shopping fa-xl text-main"></i>
+            <span class="badge bg-main text-white position-absolute top-0 start-100 translate-middle border border-light">{{ cartLength }}</span>
+          </a>
+        </li>
+        <li *ngIf="isLogin" class="nav-item ms-4">
+          <a (click)="logOut()" class="nav-link" id="logOutBtn">Logout</a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a class="nav-link" routerLink="adminPanel" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }" id="logOutBtn">Admin Panel</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

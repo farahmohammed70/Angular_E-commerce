@@ -1,0 +1,149 @@
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title fs-4 mb-3">{{ editMode ? 'Edit Product' : 'Add Product' }}</h5>
+    <h5 class="fs-6 mb-5 ms-3">You can add or edit Products here</h5>
+    <!----------------------------------------------------------------------------------------------->
+    <!-- Add Brand Form -->
+    <form [formGroup]="addProductForm">
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Title -->
+      <div class="mb-3">
+        <label for="productTitle" class="form-label">Product Title</label>
+        <input type="text" class="form-control" id="productTitle" formControlName="title" name="productTitle" required />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('title')?.errors && addProductForm.get('title')?.touched">
+          <span *ngIf="addProductForm.get('title')?.errors?.['required']" class="text-danger">Product Title is required.</span>
+          <span *ngIf="addProductForm.get('title')?.errors?.['minlength']" class="text-danger">Invalid Product Title, Min length is 3</span>
+          <span *ngIf="addProductForm.get('title')?.errors?.['maxlength']" class="text-danger">Invalid Product Title, Max length is 30</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Description -->
+      <div class="mb-3">
+        <label for="productDescription" class="form-label">Product Description</label>
+        <input type="text" class="form-control" id="productDescription" formControlName="description" name="productDescription" required />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('description')?.errors && addProductForm.get('description')?.touched">
+          <span *ngIf="addProductForm.get('description')?.errors?.['required']" class="text-danger">Product Description is required.</span>
+          <span *ngIf="addProductForm.get('description')?.errors?.['minlength']" class="text-danger">Invalid Description Title, Min length is 20</span>
+          <span *ngIf="addProductForm.get('description')?.errors?.['maxlength']" class="text-danger">Invalid Description Title, Max length is 2000</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Quantity -->
+      <div class="mb-3">
+        <label for="productQuantity" class="form-label">Product Quantity</label>
+        <input type="number" class="form-control" id="productQuantity" formControlName="quantity" name="productQuantity" required />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('quantity')?.errors && addProductForm.get('quantity')?.touched">
+          <span *ngIf="addProductForm.get('quantity')?.errors?.['pattern']" class="text-danger">Invalid Quantity only Numbers allowed.</span>
+          <span *ngIf="addProductForm.get('quantity')?.errors?.['required']" class="text-danger">Product Quantity is required.</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Sold -->
+      <div class="mb-3">
+        <label for="productSold" class="form-label">Product Sold</label>
+        <input type="number" class="form-control" id="productSold" formControlName="sold" name="productSold" />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('sold')?.errors && addProductForm.get('sold')?.touched">
+          <span *ngIf="addProductForm.get('sold')?.errors?.['pattern']" class="text-danger">Invalid Sold only Numbers allowed.</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Price -->
+      <div class="mb-3">
+        <label for="productPrice" class="form-label">Product Price</label>
+        <input type="number" class="form-control" id="productPrice" formControlName="price" name="productPrice" required />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('price')?.errors && addProductForm.get('price')?.touched">
+          <span *ngIf="addProductForm.get('price')?.errors?.['pattern']" class="text-danger">Invalid Price only Numbers allowed.</span>
+          <span *ngIf="addProductForm.get('price')?.errors?.['required']" class="text-danger">Product Price is required.</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Price After Discount -->
+      <div class="mb-3">
+        <label for="productPriceAfterDiscount" class="form-label">Product Price After Discount</label>
+        <input type="number" class="form-control" id="productPriceAfterDiscount" formControlName="priceAfterDiscount" name="productPriceAfterDiscount" />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('priceAfterDiscount')?.errors && addProductForm.get('priceAfterDiscount')?.touched">
+          <span *ngIf="addProductForm.get('priceAfterDiscount')?.errors?.['pattern']" class="text-danger">Invalid Price After Discount only Numbers allowed.</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Ratings Average -->
+      <div class="mb-3">
+        <label for="productRatingsAverage" class="form-label">Product Ratings Average</label>
+        <input type="number" class="form-control" id="productRatingsAverage" formControlName="ratingsAverage" name="productRatingsAverage" />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('ratingsAverage')?.errors && addProductForm.get('ratingsAverage')?.touched">
+          <span *ngIf="addProductForm.get('ratingsAverage')?.errors?.['pattern']" class="text-danger">Invalid Ratings Average only Numbers allowed.</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Ratings Quantity -->
+      <div class="mb-3">
+        <label for="productRatingsQuantity" class="form-label">Product Ratings Quantity</label>
+        <input type="number" class="form-control" id="productRatingsQuantity" formControlName="ratingsQuantity" name="productRatingsQuantity" />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('ratingsQuantity')?.errors && addProductForm.get('ratingsQuantity')?.touched">
+          <span *ngIf="addProductForm.get('ratingsQuantity')?.errors?.['pattern']" class="text-danger">Invalid Ratings Quantity only Numbers allowed.</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Category Dropdown -->
+      <label for="productCategory" class="form-label">Category</label>
+      <select class="form-select mb-3" formControlName="category">
+        <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+      </select>
+      <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('category')?.errors && addProductForm.get('category')?.touched">
+        <span *ngIf="addProductForm.get('category')?.errors?.['required']" class="text-danger">Product Category is required.</span>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Brand Dropdown -->
+      <label for="productBrand" class="form-label">Brand</label>
+      <select class="form-select mb-3" formControlName="brand">
+        <option *ngFor="let brand of brands" [value]="brand._id">{{ brand.name }}</option>
+      </select>
+      <div class="mb-2 col-sm-12 errors" *ngIf="addProductForm.get('brand')?.errors && addProductForm.get('brand')?.touched">
+        <span *ngIf="addProductForm.get('brand')?.errors?.['required']" class="text-danger">Product Brand is required.</span>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <!-- Product Image -->
+      <div class="mb-2">
+        <label for="productImage" class="form-label">Product Image</label>
+        <br />
+        <input type="file" class="form-control-file" id="productImage" name="productImage" accept="image/*" (change)="onImageUpload($event)" required />
+        <div><img [src]="imageDisplay" alt="" class="w-25 mt-4" /></div>
+        <br />
+        <!-- <div class="mb-5 col-sm-12 errors" *ngIf="addProductForm.get('image')?.errors && addProductForm.get('image')?.dirty">
+          <span *ngIf="addProductForm.get('image')?.errors?.['required']" class="text-danger">Please select an image.</span>
+        </div> -->
+        <div class="mb-5 col-sm-12 errors" *ngIf="addProductForm.get('image')?.errors && (addProductForm.get('image')?.touched || addProductForm.get('image')?.value)">
+          <span *ngIf="addProductForm.get('image')?.errors?.['required']" class="text-danger">Please select an image.</span>
+        </div>
+      </div>
+      <!----------------------------------------------------------------------------------------------->
+      <hr />
+      <!----------------------------------------------------------------------------------------------->
+      <div>
+        <span *ngIf="backendErrors" class="text-danger my-3">An error occurred while creating the brand. Please try again.</span>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-success" (click)="createProductBtn()" [disabled]="addProductForm.invalid">{{ editMode ? 'Update' : ' + Create' }}</button>
+        <button type="reset" class="btn btn-secondary ms-4" routerLink="/adminPanel/addProduct" (click)="resetAll()">Cancel</button>
+      </div>
+    </form>
+    <!----------------------------------------------------------------------------------------------->
+  </div>
+</div>
+<!----------------------------------------------------------------------------------------------->

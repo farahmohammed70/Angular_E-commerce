@@ -1,0 +1,33 @@
+<!---------------------------------------------------------------------------------------->
+<!-- Loading -->
+<div class="container d-flex justify-content-center p-5" *ngIf="isSpin">
+  <div class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="!isSpin" class="container d-flex justify-content-center my-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <img class="w-75" [src]="product?.image" />
+    </div>
+
+    <div class="col-md-6">
+      <h2>{{ product?.title }}</h2>
+      <p class="text-muted p-2">{{ product?.description }}</p>
+      <p>Category : {{ product?.category.name }}</p>
+      <p>Brand : {{ product?.brand.name }}</p>
+      <p>Price : {{ product?.price | currency }}</p>
+      <p>Quantity : {{ product?.quantity }}</p>
+      <div>
+        <span class="text-muted fw-bold font-sm">Average ratings : <i class="fas fa-star rating-color"></i> {{ product.ratingsAverage }}</span>
+      </div>
+
+      <button *ngIf="getUserRole() !== 'admin'" (click)="addToCart(product._id)" class="btn btn-success w-100 my-2">
+        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+        <span>+ Add</span>
+      </button>
+    </div>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->

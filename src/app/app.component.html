@@ -1,0 +1,9 @@
+<div class="d-flex flex-column justify-content-between" style="height: 100vh;">
+<app-navbar></app-navbar>
+<div>
+    <router-outlet></router-outlet>
+</div>
+<div [style.height]="!hideFooter() ? '' : '40vh'"  >
+    <app-footer *ngIf="!hideFooter()"></app-footer>
+</div>
+</div>

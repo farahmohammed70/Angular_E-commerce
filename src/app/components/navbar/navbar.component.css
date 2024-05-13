@@ -1,0 +1,86 @@
+.coloring {
+  background: linear-gradient(165deg, #12191a 5%, #002764 50%, #1e7068 87%);
+}
+a {
+  color: rgb(189, 181, 181);
+  transition: 0.3s;
+}
+a:hover {
+  color: #004ab9;
+}
+#dash {
+  color: rgb(239, 67, 204);
+}
+@media (max-width: 1399.98px) {
+}
+@media (max-width: 1199.98px) {
+  .cart1 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 991.98px) {
+  .cart1 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 767.98px) {
+  .cart1 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 575.98px) {
+  .cart1 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+#logOutBtn:hover {
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: medium;
+}
+
+.navbar {
+  background-image: url(../../../assets/images/home-page/Radient.png);
+  background-size: cover;
+}

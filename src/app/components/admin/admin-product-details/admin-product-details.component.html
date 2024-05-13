@@ -1,0 +1,27 @@
+<!---------------------------------------------------------------------------------------->
+<!-- Loading -->
+<div class="container d-flex justify-content-center p-5" *ngIf="isLoading">
+  <div class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="!isLoading" class="container d-flex justify-content-center my-3">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <img class="w-75" [src]="product?.image" />
+    </div>
+    <div class="col-md-6">
+      <h2>{{ product?.title }}</h2>
+      <p class="text-muted py-2">{{ product?.description }}</p>
+      <p>Category : {{ product?.category.name }}</p>
+      <p>Brand : {{ product?.brand.name }}</p>
+      <p>Price : {{ product?.price | currency }}</p>
+      <p>Quantity : {{ product?.quantity }}</p>
+      <p>Created At : {{ product.createdAt | date : 'short' }}</p>
+      <p>Updated At : {{ product.updatedAt | date : 'short' }}</p>
+      <p class="text-muted fw-bold font-sm">Average ratings : <i class="fas fa-star rating-color"></i> {{ product.ratingsAverage }}</p>
+    </div>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->

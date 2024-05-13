@@ -1,0 +1,66 @@
+<div class="card m-4">
+  <div class="card-body">
+    <h5 class="card-title fs-4 mb-5 d-flex justify-content-center">Update Profile</h5>
+    <!----------------------------------------------------------------------------------------------->
+    <!-- Edit User Profile Form -->
+    <form [formGroup]="editUserForm" class="d-flex justify-content-around">
+      <!-- <label for="userImage" class="form-label">Profile Photo</label>
+        <br />
+        <input type="file" class="form-control-file" id="userImage" name="userImage" accept="image/*" (change)="onImageUpload($event)" />
+        <div>
+          <img [src]="imageDisplay" alt="" class="w-25 mt-4" />
+        </div>
+        <br />
+        <div class="mb-5 col-sm-12 errors" *ngIf="editUserForm.get('image')?.errors && editUserForm.get('image')?.dirty">
+          <span *ngIf="editUserForm.get('image')?.errors?.['required']" class="text-danger">Please select an image.</span>
+        </div> -->
+
+      <div class="col-xl-4 mb-4">
+        <div class="card mb-4 mb-xl-0">
+          <div class="card-header d-flex justify-content-center"><label for="userImage" class="form-label">Profile Photo</label></div>
+          <div class="card-body text-center">
+            <div>
+              <img [src]="imageDisplay" alt="Profile Picture" class="rounded-circle img-fluid my-3" style="width: 150px" />
+            </div>
+            <input type="file" class="form-control-file" id="userImage" name="userImage" accept="image/*" (change)="onImageUpload($event)" />
+            <div class="mb-5 col-sm-12 errors" *ngIf="editUserForm.get('image')?.errors && editUserForm.get('image')?.dirty">
+              <span *ngIf="editUserForm.get('image')?.errors?.['required']" class="text-danger">Please select an image.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <!-- <hr /> -->
+        <div class="mb-3">
+          <label for="userName" class="form-label">User Name</label>
+          <input type="text" class="form-control" id="userName" formControlName="name" name="userName" required />
+          <div class="mb-2 col-sm-12 errors" *ngIf="editUserForm.get('name')?.errors && editUserForm.get('name')?.touched">
+            <span *ngIf="editUserForm.get('name')?.errors?.['required']" class="text-danger">Name is required.</span>
+            <span *ngIf="editUserForm.get('name')?.errors?.['pattern']" class="text-danger">Invalid name. only alphabets allowed.</span>
+            <span *ngIf="editUserForm.get('name')?.errors?.['minlength']" class="text-danger"> Min length is 3</span>
+            <span *ngIf="editUserForm.get('name')?.errors?.['maxlength']" class="text-danger"> Max length is 15</span>
+          </div>
+        </div>
+        <hr />
+        <div class="mb-3">
+          <label for="userPhone" class="form-label">User Phone</label>
+          <input type="text" class="form-control" id="userPhone" formControlName="phone" name="userPhone" required placeholder="01012345678" />
+          <div class="mb-2 col-sm-12 errors" *ngIf="editUserForm.get('phone')?.errors && editUserForm.get('phone')?.touched">
+            <span *ngIf="editUserForm.get('phone')?.errors?.['required']" class="text-danger">Phone is required.</span>
+            <span *ngIf="editUserForm.get('phone')?.errors?.['pattern']" class="text-danger">Invalid Phone Number</span>
+          </div>
+        </div>
+
+        <div>
+          <span *ngIf="backendErrors" class="text-danger my-3">An error occurred while update profile. Please try again.</span>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+          <button type="submit" class="btn btn-success" (click)="updateUserBtn()" [disabled]="editUserForm.invalid">Update</button>
+          <button type="reset" class="btn btn-secondary ms-4" routerLink="/adminPanel/addCategory" (click)="resetAll()">Cancel</button>
+        </div>
+      </div>
+    </form>
+    <!----------------------------------------------------------------------------------------------->
+  </div>
+</div>
+<!----------------------------------------------------------------------------------------------->

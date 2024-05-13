@@ -1,0 +1,43 @@
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title fs-4 mb-3">{{ editMode ? 'Edit Category' : 'Add Category' }}</h5>
+    <h5 class="fs-6 mb-5 ms-3">You can add or edit Categories here</h5>
+    <!----------------------------------------------------------------------------------------------->
+    <!-- Add Category Form -->
+    <form [formGroup]="addCategoryForm">
+      <div class="mb-3">
+        <label for="categoryName" class="form-label">Category Name</label>
+        <input type="text" class="form-control" id="categoryName" formControlName="name" name="categoryName" required />
+        <div class="mb-2 col-sm-12 errors" *ngIf="addCategoryForm.get('name')?.errors && addCategoryForm.get('name')?.touched">
+          <span *ngIf="addCategoryForm.get('name')?.errors?.['required']" class="text-danger">Name is required.</span>
+          <span *ngIf="addCategoryForm.get('name')?.errors?.['pattern']" class="text-danger">Invalid name. only alphabets allowed.</span>
+          <span *ngIf="addCategoryForm.get('name')?.errors?.['minlength']" class="text-danger"> Min length is 3</span>
+          <span *ngIf="addCategoryForm.get('name')?.errors?.['maxlength']" class="text-danger"> Max length is 15</span>
+        </div>
+      </div>
+      <hr />
+      <div class="mb-2">
+        <label for="categoryImage" class="form-label">Category Image</label>
+        <br />
+        <input type="file" class="form-control-file" id="categoryImage" name="categoryImage" accept="image/*" (change)="onImageUpload($event)" required />
+        <div>
+          <img [src]="imageDisplay" alt="" class="w-25 mt-4" />
+        </div>
+        <br />
+        <div class="mb-5 col-sm-12 errors" *ngIf="addCategoryForm.get('image')?.errors && addCategoryForm.get('image')?.dirty">
+          <span *ngIf="addCategoryForm.get('image')?.errors?.['required']" class="text-danger">Please select an image.</span>
+        </div>
+        <hr />
+      </div>
+      <div>
+        <span *ngIf="backendErrors" class="text-danger my-3">An error occurred while creating the category. Please try again.</span>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-success" (click)="createCategoryBtn()" [disabled]="addCategoryForm.invalid">{{ editMode ? 'Update' : ' + Create' }}</button>
+        <button type="reset" class="btn btn-secondary ms-4" routerLink="/adminPanel/addCategory" (click)="resetAll()">Cancel</button>
+      </div>
+    </form>
+    <!----------------------------------------------------------------------------------------------->
+  </div>
+</div>
+<!----------------------------------------------------------------------------------------------->

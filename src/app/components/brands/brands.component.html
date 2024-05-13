@@ -1,0 +1,19 @@
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <h1 class="text-main fw-bold fs-2">All Brands</h1>
+</div>
+<!---------------------------------------------------------------------------------------->
+<!-- Loading -->
+<div class="container d-flex justify-content-center p-5" *ngIf="loading">
+  <div class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<!-- Brands -->
+<div *ngIf="!loading" class="row p-5 m-5">
+  <div *ngFor="let brand of brandsItems" class="col-xl-3 col-lg-4 col-md-6 mb-5 product">
+    <img [src]="brand.image" [alt]="brand.name" class="w-100" />
+    <h4 class="h4 fw-bolder text-center">{{ brand.name }}</h4>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------->

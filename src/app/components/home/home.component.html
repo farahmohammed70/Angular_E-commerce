@@ -1,0 +1,163 @@
+<!---------------------------------------------------------------------------------------->
+<!-- Slider -->
+<app-slider></app-slider>
+<!---------------------------------------------------------------------------------------->
+<!-- We Have What You Need -->
+<section *ngIf="!isLoggedIn" class="introduction">
+  <div class="container">
+    <section class="row">
+      <div class="row">
+        <h2 class="fs-2 pb-4">We Have What You Need</h2>
+      </div>
+      <div class="row pb-3"><hr /></div>
+      <div class="row pt-3 pb-3">
+        <p class="col-6 fs-5">To Have Access to All Of Our Products You need to Login</p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" routerLink="/users/login" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }">Login</button>
+        </div>
+      </div>
+      <div class="row pt-3 pb-3">
+        <p class="col-6 fs-5">If You don't have Email You can register here</p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" routerLink="/users/register" routerLinkActive="fw-bold text-primary" [routerLinkActiveOptions]="{ exact: true }">
+            Register
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+<!---------------------------------------------------------------------------------------->
+<!-- All What You Need To Know About Us -->
+<section class="reviews bg-light">
+  <div class="container">
+    <h2 class="text-center pb-4 fs-4">
+      At SoftTech, we're passionate about providing you with an exceptional online shopping experience. Here's everything you need to know about us:
+    </h2>
+    <div class="row">
+      <div class="col-md-4 col-12 alert alert-link">
+        <p class="text-start fs-6">
+          Our mission is to offer high-quality products, excellent customer service, and a seamless shopping experience that exceeds your expectations.
+        </p>
+      </div>
+      <div class="col-md-4 col-12 alert alert-link">
+        <p class="text-start fs-6">
+          We know you can't wait to receive your order, which is why we offer fast and reliable shipping options. Whether you're shopping locally or internationally,
+          we'll get your order to you as quickly as possible.
+        </p>
+      </div>
+      <div class="col-md-4 col-12 alert alert-link">
+        <p class="text-start fs-6">
+          We believe in offering only the best to our customers. That's why we work closely with trusted suppliers and brands to ensure that every product meets our
+          rigorous quality standards.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!---------------------------------------------------------------------------------------->
+<app-products></app-products>
+<div class="container">
+  <hr />
+</div>
+<app-categories></app-categories>
+<div class="container">
+  <hr />
+</div>
+<app-brands></app-brands>
+<!---------------------------------------------------------------------------------------->
+<!-- Frequently asked questions -->
+<section class="question">
+  <div class="container">
+    <div class="styleH2">
+      <h2 class="text-center">Frequently asked questions</h2>
+    </div>
+
+    <div class="accordion accordion-flush border border-light-subtle bg-black" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne"
+            aria-expanded="false"
+            aria-controls="flush-collapseOne"
+          >
+            What payment methods do you accept?
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo"
+            aria-expanded="false"
+            aria-controls="flush-collapseTwo"
+          >
+            How can I track my order?
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            Once your order has been shipped, you will receive a tracking number via email. You can use this tracking number to monitor the status of your delivery on our
+            website or the courier's website.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree"
+            aria-expanded="false"
+            aria-controls="flush-collapseThree"
+          >
+            Do you offer international shipping?
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Yes, we ship internationally to most countries. Shipping rates and delivery times may vary depending on the destination.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!---------------------------------------------------------------------------------------->
+<!-- What people are saying -->
+<section class="reviews bg-light">
+  <div class="container">
+    <h2 class="text-center pb-4">What people are saying…</h2>
+    <div class="row">
+      <div class="col-md-4 col-12 alert alert-link">
+        <h3 class="text-center">Tim Schoch</h3>
+        <p class="text-center">Designer</p>
+        <p class="text-center">"I recently discovered Tech Store, and I'm obsessed! They have such a unique selection of products that I can't find anywhere else."</p>
+      </div>
+      <div class="col-md-4 col-12 alert alert-link">
+        <h3 class="text-center">Olive Mathews</h3>
+        <p class="text-center">Photographer</p>
+        <p class="text-center">"I'm constantly impressed by the new products that Tech Store adds to their inventory. It keeps me coming back for more!"</p>
+      </div>
+      <div class="col-md-4 col-12 alert alert-link">
+        <h3 class="text-center">Malan Alankara</h3>
+        <p class="text-center">Architect</p>
+        <p class="text-center">"The customer service at Tech Store is top-notch! I had an issue with my order, and they resolved it quickly and efficiently."</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!---------------------------------------------------------------------------------------->

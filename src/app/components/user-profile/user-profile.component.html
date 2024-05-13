@@ -1,0 +1,51 @@
+<div class="container-xl px-4 my-5">
+  <hr class="mt-0 mb-4" />
+  <div class="row">
+    <div class="col-xl-4">
+      <div class="card mb-4 mb-xl-0">
+        <div class="card-header d-flex justify-content-center">Profile Picture</div>
+        <div class="card-body text-center">
+          <div>
+            <img [src]="currentuser?.image || '../../../assets/images/user.png'" alt="Profile Picture" class="rounded-circle img-fluid my-3" style="width: 150px" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!----------------------------------------------------------------------------------------------->
+    <div class="col-lg-8">
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="my-2 fs-6">User Name :</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="my-2 fs-6">{{ currentuser?.name }}</p>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="my-2 fs-6">Email :</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="my-2 fs-6">{{ currentuser?.email }}</p>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-sm-3 fs-6">
+              <p class="my-2">Phone Number :</p>
+            </div>
+            <div class="col-sm-9 fs-6">
+              <p class="my-2">{{ currentuser?.phone || 0 }}</p>
+            </div>
+          </div>
+          <br />
+          <button type="button" class="btn btn-primary w-25" [routerLink]="['/usereditprofile', currentId]">Edit Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------------------------------------------------------------------------------------->

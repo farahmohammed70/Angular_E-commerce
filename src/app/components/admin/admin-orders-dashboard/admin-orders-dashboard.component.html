@@ -1,0 +1,33 @@
+<div *ngIf="orders && orders.length > 0; else noOrders">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Total Price</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.user }}</td>
+          <td>{{ order.totalPrice }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.date | date: 'yyyy-MM-dd' }}</td>
+          <td>
+            <button class="btn btn-danger mr-2" (click)="deleteOrder(order._id)">Delete</button>
+            <select class="form-select" (change)="changeOrderStatus($event, order._id)">
+              <option value="placed">Placed</option>
+              <option value="processing">Processing</option>
+              <option value="shipped">Shipped</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noOrders>
+    <p>No orders found.</p>
+  </ng-template>
+  
